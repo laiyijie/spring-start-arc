@@ -23,7 +23,6 @@
         <org.flyway-version>4.2.0</org.flyway-version>
     </properties>
     <modules>
-        <module>modules/log</module>
         <module>modules/dao</module>
         <module>modules/service</module>
         <module>modules/web</module>
