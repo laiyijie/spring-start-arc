@@ -1,0 +1,3 @@
+[submodule "libs/l-spring-log"]
+	path = libs/l-spring-log
+	url = https://github.com/laiyijie/l-spring-log.git
