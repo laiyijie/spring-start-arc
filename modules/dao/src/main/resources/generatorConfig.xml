@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+  "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+	<classPathEntry
+		location="C:\Users\admin\.m2\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+
+	<context id="context1">
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 请修改此处地址 -->
+		<jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/test_demo"
+			driverClass="com.mysql.jdbc.Driver" password="123456"
+			userId="root" />
+		<javaModelGenerator targetPackage="cn.bangnongmang.data.domain"
+			targetProject="src/main/java" />
+		<sqlMapGenerator targetPackage="cn.bangnongmang.data.mapper"
+			targetProject="src/main/java" />
+		<javaClientGenerator targetPackage="cn.bangnongmang.data.dao"
+			targetProject="src/main/java" type="XMLMAPPER" />
+
+		<table schema="bnm77" tableName="test_count" domainObjectName="TestCount">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+
+	</context>
+</generatorConfiguration>
