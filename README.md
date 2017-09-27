@@ -15,16 +15,22 @@
 ## 使用方式
 
 1. clone 项目到本地
-2. git submodule update --init
-3. cd libs/l-spring-log
-4. mvn clean install
-5. cd /path/to/project
-6. mvn clean install
-7. idea中执行sping工程
-8. 浏览器输入 http://127.0.0.1:36512/server/api/v1/test/info?word=123
+2. 安装配置 l-spring-log
+8. idea中执行sping工程
+9. 浏览器输入 http://127.0.0.1:36512/server/api/v1/test/info?word=123
 
 结果显示为 {"myWord":"123","count":10}
 
+
+## 更新/安装配置 l-spring-log 插件方式
+
+1. git submodule update --init libs/l-spring-log
+2. cd libs/l-spring-log
+3. mvn clean install
+4. cd /path/to/project
+5. mvn clean install
+6. 设置环境变量 L_LOGPATH 并重启idea使环境变量生效
+    例如 L_LOGPATH=F:\logs
 
 ## swagger使用方式
 
