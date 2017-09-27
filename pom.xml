@@ -21,6 +21,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <org.flyway-version>4.2.0</org.flyway-version>
+        <springfox-version>2.4.0</springfox-version>
+
     </properties>
     <modules>
         <module>modules/dao</module>

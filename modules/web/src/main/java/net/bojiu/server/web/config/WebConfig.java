@@ -1,4 +1,4 @@
-package me.laiyijie.spring.web.config;
+package net.bojiu.server.web.config;
 
 import me.laiyijie.spring.log.web.AccessLogFilter;
 import org.springframework.context.annotation.Bean;
@@ -20,10 +20,10 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 //                .addPathPatterns("/**");
     }
 
-    @Bean
-    public Filter loggingFilter() {
-        return new AccessLogFilter();
-    }
+//    @Bean
+//    public Filter loggingFilter() {
+//        return new AccessLogFilter();
+//    }
     @Bean
     public Filter characterEncodingFilter(){
         return new CharacterEncodingFilter("UTF-8",true,true);
