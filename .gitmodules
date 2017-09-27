@@ -1,3 +1,6 @@
 [submodule "libs/l-spring-log"]
 	path = libs/l-spring-log
 	url = https://github.com/laiyijie/l-spring-log.git
+[submodule "libs/bojiu-swagger-api"]
+	path = libs/bojiu-swagger-api
+	url = git@gitsvr.0lz.net:yijie.l/bojiu-swagger-api.git
