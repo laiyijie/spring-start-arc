@@ -15,7 +15,7 @@
             location="classpath:test_config.properties"/>
     <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate"
           p:dataSource-ref="mysqlDataSource"
-          p:locations="classpath:db_bnm_main/migration"/>
+          p:locations="classpath:db_migration"/>
 
     <bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close" p:driverClassName="${jdbc.driverClass}" p:url="${jdbc.url}"
@@ -25,14 +25,9 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
           p:dataSource-ref="mysqlDataSource" depends-on="flyway">
-        <property name="typeHandlersPackage">
-            <value>cn.bangnongmang.data.size.typehandlers</value>
-        </property>
         <property name="mapperLocations">
             <list>
-                <value>classpath:cn/bangnongmang/data/mapper/*.xml</value>
-                <value>classpath:cn/bangnongmang/data/combo/mapper/*.xml</value>
-                <value>classpath:cn/bangnongmang/data/size/mapper/*.xml</value>
+                <value>classpath:net/bojiu/server/data/mapper/*.xml</value>
             </list>
         </property>
 
@@ -40,7 +35,7 @@
 
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:sqlSessionFactoryBeanName="sqlSessionFactory" p:basePackage="cn.bangnongmang.data"/>
+          p:sqlSessionFactoryBeanName="sqlSessionFactory" p:basePackage="net.bojiu.server"/>
 
 
 </beans>
