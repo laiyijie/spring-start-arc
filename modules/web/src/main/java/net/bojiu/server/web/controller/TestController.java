@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import net.bojiu.server.data.domain.tbUserCriteria;
 import net.bojiu.server.swagger.api.TestApi;
 import net.bojiu.server.swagger.model.TestResponse;
 import org.springframework.beans.factory.annotation.Autowired;
