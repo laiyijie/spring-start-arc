@@ -23,7 +23,7 @@ import java.util.Properties;
 /**
  * Created by laiyijie on 9/29/17.
  */
-@MapperScan(basePackages = "net.bojiu.server.data",sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = "me.laiyijie.server.data",sqlSessionFactoryRef = "sqlSessionFactory")
 public class CommonConfig {
 
     @Value("${me.jdbc.url}")
