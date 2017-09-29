@@ -31,9 +31,5 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     public Filter loggingFilter() {
         return new AccessLogFilter();
     }
-    @Bean
-    public Filter characterEncodingFilter(){
-        return new CharacterEncodingFilter("UTF-8",true,true);
-    }
 
 }
