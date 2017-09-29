@@ -1,9 +1,11 @@
-package me.laiyijie.spring.web.config;
+package net.bojiu.server.web.config;
 
 import me.laiyijie.spring.log.web.AccessLogFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -20,13 +22,14 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 //                .addPathPatterns("/**");
     }
 
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
+    }
+
     @Bean
     public Filter loggingFilter() {
         return new AccessLogFilter();
-    }
-    @Bean
-    public Filter characterEncodingFilter(){
-        return new CharacterEncodingFilter("UTF-8",true,true);
     }
 
 }

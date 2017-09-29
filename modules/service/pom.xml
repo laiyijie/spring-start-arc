@@ -9,5 +9,13 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
-    <artifactId>service</artifactId>
+    <artifactId>server.service</artifactId>
+    <name>service</name>
+    <dependencies>
+        <dependency>
+            <groupId>net.bojiu</groupId>
+            <artifactId>server.dao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>
