@@ -23,7 +23,6 @@ import java.util.Properties;
 /**
  * Created by laiyijie on 9/29/17.
  */
-@Configuration
 @MapperScan(basePackages = "net.bojiu.server.data",sqlSessionFactoryRef = "sqlSessionFactory")
 public class CommonConfig {
 
@@ -36,8 +35,6 @@ public class CommonConfig {
     @Value("${bojiu.jdbc.password}")
     private String jdbcPassword;
 
-    @Value("${bojiu.flyway.scriptLocation}")
-    private String flyWayScriptLocation;
     @Value("${bojiu.mybatis.sqlSessionFactory.mapperLocations}")
     private Resource[] mapperLocations;
     @Value("${bojiu.mybatis.scanner.basePackage}")
@@ -63,7 +60,6 @@ public class CommonConfig {
     public Flyway flyway(){
         Flyway flyway = new Flyway();
         flyway.setDataSource(mysqlDataSource());
-        flyway.setLocations(flyWayScriptLocation);
         return flyway;
     }
 

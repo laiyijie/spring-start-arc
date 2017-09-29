@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import net.bojiu.server.data.domain.tbUserCriteria;
 import net.bojiu.server.swagger.api.TestApi;
 import net.bojiu.server.swagger.model.TestResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotNull;
-import net.bojiu.server.data.dao.tbUserMapper;
 /**
  * Created by admin on 2017/9/28.
  */

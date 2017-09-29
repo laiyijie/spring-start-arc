@@ -1,7 +1,5 @@
 package net.bojiu.server.test;
 
-import net.bojiu.server.data.dao.tbUserMapper;
-import net.bojiu.server.data.domain.tbUserCriteria;
 import net.bojiu.server.web.config.CommonConfig;
 import net.bojiu.server.web.controller.TestController;
 import org.junit.Test;

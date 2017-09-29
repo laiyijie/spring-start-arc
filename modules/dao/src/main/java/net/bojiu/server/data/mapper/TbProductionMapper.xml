@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.bojiu.server.data.dao.TbProductionMapper">
+  <resultMap id="BaseResultMap" type="net.bojiu.server.data.domain.TbProduction">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="AUTHOR_ID" jdbcType="INTEGER" property="AUTHOR_ID" />
+    <result column="COVER_IMAGE_PATH" jdbcType="VARCHAR" property="COVER_IMAGE_PATH" />
+    <result column="TITLE" jdbcType="VARCHAR" property="TITLE" />
+    <result column="VIDEO_ID" jdbcType="VARCHAR" property="VIDEO_ID" />
+    <result column="VIDEO_DURATION" jdbcType="INTEGER" property="VIDEO_DURATION" />
+    <result column="COMMENT_COUNT" jdbcType="INTEGER" property="COMMENT_COUNT" />
+    <result column="FAVORITE_COUNT" jdbcType="INTEGER" property="FAVORITE_COUNT" />
+    <result column="SHARE_COUNT" jdbcType="INTEGER" property="SHARE_COUNT" />
+    <result column="UPLOAD_TIME" jdbcType="BIGINT" property="UPLOAD_TIME" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, AUTHOR_ID, COVER_IMAGE_PATH, TITLE, VIDEO_ID, VIDEO_DURATION, COMMENT_COUNT, 
+    FAVORITE_COUNT, SHARE_COUNT, UPLOAD_TIME
+  </sql>
+  <select id="selectByExample" parameterType="net.bojiu.server.data.domain.TbProductionCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from PRODUCTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PRODUCTION
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from PRODUCTION
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="net.bojiu.server.data.domain.TbProductionCriteria">
+    delete from PRODUCTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="net.bojiu.server.data.domain.TbProduction">
+    insert into PRODUCTION (ID, AUTHOR_ID, COVER_IMAGE_PATH, 
+      TITLE, VIDEO_ID, VIDEO_DURATION, 
+      COMMENT_COUNT, FAVORITE_COUNT, SHARE_COUNT, 
+      UPLOAD_TIME)
+    values (#{ID,jdbcType=INTEGER}, #{AUTHOR_ID,jdbcType=INTEGER}, #{COVER_IMAGE_PATH,jdbcType=VARCHAR}, 
+      #{TITLE,jdbcType=VARCHAR}, #{VIDEO_ID,jdbcType=VARCHAR}, #{VIDEO_DURATION,jdbcType=INTEGER}, 
+      #{COMMENT_COUNT,jdbcType=INTEGER}, #{FAVORITE_COUNT,jdbcType=INTEGER}, #{SHARE_COUNT,jdbcType=INTEGER}, 
+      #{UPLOAD_TIME,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="net.bojiu.server.data.domain.TbProduction">
+    insert into PRODUCTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="AUTHOR_ID != null">
+        AUTHOR_ID,
+      </if>
+      <if test="COVER_IMAGE_PATH != null">
+        COVER_IMAGE_PATH,
+      </if>
+      <if test="TITLE != null">
+        TITLE,
+      </if>
+      <if test="VIDEO_ID != null">
+        VIDEO_ID,
+      </if>
+      <if test="VIDEO_DURATION != null">
+        VIDEO_DURATION,
+      </if>
+      <if test="COMMENT_COUNT != null">
+        COMMENT_COUNT,
+      </if>
+      <if test="FAVORITE_COUNT != null">
+        FAVORITE_COUNT,
+      </if>
+      <if test="SHARE_COUNT != null">
+        SHARE_COUNT,
+      </if>
+      <if test="UPLOAD_TIME != null">
+        UPLOAD_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="AUTHOR_ID != null">
+        #{AUTHOR_ID,jdbcType=INTEGER},
+      </if>
+      <if test="COVER_IMAGE_PATH != null">
+        #{COVER_IMAGE_PATH,jdbcType=VARCHAR},
+      </if>
+      <if test="TITLE != null">
+        #{TITLE,jdbcType=VARCHAR},
+      </if>
+      <if test="VIDEO_ID != null">
+        #{VIDEO_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="VIDEO_DURATION != null">
+        #{VIDEO_DURATION,jdbcType=INTEGER},
+      </if>
+      <if test="COMMENT_COUNT != null">
+        #{COMMENT_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="FAVORITE_COUNT != null">
+        #{FAVORITE_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="SHARE_COUNT != null">
+        #{SHARE_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="UPLOAD_TIME != null">
+        #{UPLOAD_TIME,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="net.bojiu.server.data.domain.TbProductionCriteria" resultType="java.lang.Long">
+    select count(*) from PRODUCTION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update PRODUCTION
+    <set>
+      <if test="record.ID != null">
+        ID = #{record.ID,jdbcType=INTEGER},
+      </if>
+      <if test="record.AUTHOR_ID != null">
+        AUTHOR_ID = #{record.AUTHOR_ID,jdbcType=INTEGER},
+      </if>
+      <if test="record.COVER_IMAGE_PATH != null">
+        COVER_IMAGE_PATH = #{record.COVER_IMAGE_PATH,jdbcType=VARCHAR},
+      </if>
+      <if test="record.TITLE != null">
+        TITLE = #{record.TITLE,jdbcType=VARCHAR},
+      </if>
+      <if test="record.VIDEO_ID != null">
+        VIDEO_ID = #{record.VIDEO_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="record.VIDEO_DURATION != null">
+        VIDEO_DURATION = #{record.VIDEO_DURATION,jdbcType=INTEGER},
+      </if>
+      <if test="record.COMMENT_COUNT != null">
+        COMMENT_COUNT = #{record.COMMENT_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="record.FAVORITE_COUNT != null">
+        FAVORITE_COUNT = #{record.FAVORITE_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="record.SHARE_COUNT != null">
+        SHARE_COUNT = #{record.SHARE_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="record.UPLOAD_TIME != null">
+        UPLOAD_TIME = #{record.UPLOAD_TIME,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update PRODUCTION
+    set ID = #{record.ID,jdbcType=INTEGER},
+      AUTHOR_ID = #{record.AUTHOR_ID,jdbcType=INTEGER},
+      COVER_IMAGE_PATH = #{record.COVER_IMAGE_PATH,jdbcType=VARCHAR},
+      TITLE = #{record.TITLE,jdbcType=VARCHAR},
+      VIDEO_ID = #{record.VIDEO_ID,jdbcType=VARCHAR},
+      VIDEO_DURATION = #{record.VIDEO_DURATION,jdbcType=INTEGER},
+      COMMENT_COUNT = #{record.COMMENT_COUNT,jdbcType=INTEGER},
+      FAVORITE_COUNT = #{record.FAVORITE_COUNT,jdbcType=INTEGER},
+      SHARE_COUNT = #{record.SHARE_COUNT,jdbcType=INTEGER},
+      UPLOAD_TIME = #{record.UPLOAD_TIME,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="net.bojiu.server.data.domain.TbProduction">
+    update PRODUCTION
+    <set>
+      <if test="AUTHOR_ID != null">
+        AUTHOR_ID = #{AUTHOR_ID,jdbcType=INTEGER},
+      </if>
+      <if test="COVER_IMAGE_PATH != null">
+        COVER_IMAGE_PATH = #{COVER_IMAGE_PATH,jdbcType=VARCHAR},
+      </if>
+      <if test="TITLE != null">
+        TITLE = #{TITLE,jdbcType=VARCHAR},
+      </if>
+      <if test="VIDEO_ID != null">
+        VIDEO_ID = #{VIDEO_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="VIDEO_DURATION != null">
+        VIDEO_DURATION = #{VIDEO_DURATION,jdbcType=INTEGER},
+      </if>
+      <if test="COMMENT_COUNT != null">
+        COMMENT_COUNT = #{COMMENT_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="FAVORITE_COUNT != null">
+        FAVORITE_COUNT = #{FAVORITE_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="SHARE_COUNT != null">
+        SHARE_COUNT = #{SHARE_COUNT,jdbcType=INTEGER},
+      </if>
+      <if test="UPLOAD_TIME != null">
+        UPLOAD_TIME = #{UPLOAD_TIME,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="net.bojiu.server.data.domain.TbProduction">
+    update PRODUCTION
+    set AUTHOR_ID = #{AUTHOR_ID,jdbcType=INTEGER},
+      COVER_IMAGE_PATH = #{COVER_IMAGE_PATH,jdbcType=VARCHAR},
+      TITLE = #{TITLE,jdbcType=VARCHAR},
+      VIDEO_ID = #{VIDEO_ID,jdbcType=VARCHAR},
+      VIDEO_DURATION = #{VIDEO_DURATION,jdbcType=INTEGER},
+      COMMENT_COUNT = #{COMMENT_COUNT,jdbcType=INTEGER},
+      FAVORITE_COUNT = #{FAVORITE_COUNT,jdbcType=INTEGER},
+      SHARE_COUNT = #{SHARE_COUNT,jdbcType=INTEGER},
+      UPLOAD_TIME = #{UPLOAD_TIME,jdbcType=BIGINT}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

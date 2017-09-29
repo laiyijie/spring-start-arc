@@ -2,8 +2,6 @@ package net.bojiu.server.data.dao.test;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageInterceptor;
-import net.bojiu.server.data.dao.tbUserMapper;
-import net.bojiu.server.data.domain.tbUserCriteria;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.flywaydb.core.Flyway;
@@ -28,13 +26,8 @@ import java.util.Properties;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ExampleTest {
-    @Autowired
-    tbUserMapper userMapper;
 
     @Test
     public void Test(){
-        tbUserCriteria criteria = new tbUserCriteria();
-        criteria.or().andIdGreaterThan(1);
-        userMapper.countByExample(criteria);
     }
 }

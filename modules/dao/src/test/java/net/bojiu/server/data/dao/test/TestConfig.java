@@ -13,17 +13,14 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.io.Resource;
-
 import javax.sql.DataSource;
 import java.util.Properties;
-
 /**
  * Created by laiyijie on 9/29/17.
  */
 @MapperScan(basePackages = "net.bojiu.server.data")
 @SpringBootConfiguration
 public class TestConfig {
-
 
     @Value("${bojiu.jdbc.url}")
     private String jdbcUrl;
@@ -34,8 +31,6 @@ public class TestConfig {
     @Value("${bojiu.jdbc.password}")
     private String jdbcPassword;
 
-    @Value("${bojiu.flyway.scriptLocation}")
-    private String flyWayScriptLocation;
     @Value("${bojiu.mybatis.sqlSessionFactory.mapperLocations}")
     private Resource[] mapperLocations;
     @Value("${bojiu.mybatis.scanner.basePackage}")
@@ -61,7 +56,6 @@ public class TestConfig {
     public Flyway flyway(){
         Flyway flyway = new Flyway();
         flyway.setDataSource(mysqlDataSource());
-        flyway.setLocations(flyWayScriptLocation);
         return flyway;
     }
 
