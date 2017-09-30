@@ -50,7 +50,7 @@ public class CommonConfig {
         druidDataSource.setPassword(jdbcPassword);
         druidDataSource.setTestWhileIdle(true);
         druidDataSource.setTestOnBorrow(false);
-        druidDataSource.setValidationQuery("SELETCT 1");
+        druidDataSource.setValidationQuery("SELECT 1");
         druidDataSource.setTimeBetweenEvictionRunsMillis(7200000);
         druidDataSource.setNumTestsPerEvictionRun(50);
         return druidDataSource;
