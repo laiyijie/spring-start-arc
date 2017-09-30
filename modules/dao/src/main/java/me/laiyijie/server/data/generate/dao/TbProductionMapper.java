@@ -1,8 +1,8 @@
-package me.laiyijie.server.data.dao;
+package me.laiyijie.server.data.generate.dao;
 
 import java.util.List;
-import me.laiyijie.server.data.domain.TbProduction;
-import me.laiyijie.server.data.domain.TbProductionCriteria;
+import me.laiyijie.server.data.generate.domain.TbProduction;
+import me.laiyijie.server.data.generate.domain.TbProductionCriteria;
 import org.apache.ibatis.annotations.Param;
 
 public interface TbProductionMapper {

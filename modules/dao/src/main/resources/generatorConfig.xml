@@ -20,11 +20,11 @@
 		<jdbcConnection connectionURL="jdbc:h2:./target/temp_db"
 			driverClass="org.h2.Driver"
 			userId="sa" password="" />
-		<javaModelGenerator targetPackage="me.laiyijie.server.data.domain"
+		<javaModelGenerator targetPackage="me.laiyijie.server.data.generate.domain"
 			targetProject="src/main/java" />
-		<sqlMapGenerator targetPackage="me.laiyijie.server.data.mapper"
+		<sqlMapGenerator targetPackage="me.laiyijie.server.data.generate.mapper"
 			targetProject="src/main/java" />
-		<javaClientGenerator targetPackage="me.laiyijie.server.data.dao"
+		<javaClientGenerator targetPackage="me.laiyijie.server.data.generate.dao"
 			targetProject="src/main/java" type="XMLMAPPER" />
 
 		<table  tableName="user" domainObjectName="TbUser">

@@ -2,9 +2,9 @@ package me.laiyijie.server.data.dao.test;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageInterceptor;
-import me.laiyijie.server.data.dao.TbUserMapper;
-import me.laiyijie.server.data.domain.TbUser;
-import me.laiyijie.server.data.domain.TbUserCriteria;
+import me.laiyijie.server.data.generate.dao.TbUserMapper;
+import me.laiyijie.server.data.generate.domain.TbUser;
+import me.laiyijie.server.data.generate.domain.TbUserCriteria;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.flywaydb.core.Flyway;

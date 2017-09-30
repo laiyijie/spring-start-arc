@@ -1,4 +1,4 @@
-package me.laiyijie.server.data.domain;
+package me.laiyijie.server.data.generate.domain;
 
 import java.util.ArrayList;
 import java.util.List;

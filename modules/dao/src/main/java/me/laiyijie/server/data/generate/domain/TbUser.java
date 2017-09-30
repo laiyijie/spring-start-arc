@@ -1,4 +1,4 @@
-package me.laiyijie.server.data.domain;
+package me.laiyijie.server.data.generate.domain;
 
 public class TbUser {
     private Integer ID;

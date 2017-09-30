@@ -1,8 +1,8 @@
-package me.laiyijie.server.data.dao;
+package me.laiyijie.server.data.generate.dao;
 
 import java.util.List;
-import me.laiyijie.server.data.domain.TbUser;
-import me.laiyijie.server.data.domain.TbUserCriteria;
+import me.laiyijie.server.data.generate.domain.TbUser;
+import me.laiyijie.server.data.generate.domain.TbUserCriteria;
 import org.apache.ibatis.annotations.Param;
 
 public interface TbUserMapper {

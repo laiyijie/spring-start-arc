@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="me.laiyijie.server.data.dao.TbUserMapper">
-  <resultMap id="BaseResultMap" type="me.laiyijie.server.data.domain.TbUser">
+<mapper namespace="me.laiyijie.server.data.generate.dao.TbUserMapper">
+  <resultMap id="BaseResultMap" type="me.laiyijie.server.data.generate.domain.TbUser">
     <id column="ID" jdbcType="INTEGER" property="ID" />
     <result column="NAME" jdbcType="VARCHAR" property="NAME" />
     <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="PHONE_NUMBER" />
@@ -74,7 +74,7 @@
     ID, NAME, PHONE_NUMBER, PASSWORD, WECHAT_UNION_ID, WECHAT_OPEN_ID, REGISTER_FROM, 
     REGISTER_TIME, LAST_LOGIN_TIME
   </sql>
-  <select id="selectByExample" parameterType="me.laiyijie.server.data.domain.TbUserCriteria" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="me.laiyijie.server.data.generate.domain.TbUserCriteria" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -98,13 +98,13 @@
     delete from USER
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="me.laiyijie.server.data.domain.TbUserCriteria">
+  <delete id="deleteByExample" parameterType="me.laiyijie.server.data.generate.domain.TbUserCriteria">
     delete from USER
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="me.laiyijie.server.data.domain.TbUser">
+  <insert id="insert" parameterType="me.laiyijie.server.data.generate.domain.TbUser">
     insert into USER (ID, NAME, PHONE_NUMBER, 
       PASSWORD, WECHAT_UNION_ID, WECHAT_OPEN_ID, 
       REGISTER_FROM, REGISTER_TIME, LAST_LOGIN_TIME
@@ -114,7 +114,7 @@
       #{REGISTER_FROM,jdbcType=VARCHAR}, #{REGISTER_TIME,jdbcType=BIGINT}, #{LAST_LOGIN_TIME,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="me.laiyijie.server.data.domain.TbUser">
+  <insert id="insertSelective" parameterType="me.laiyijie.server.data.generate.domain.TbUser">
     insert into USER
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ID != null">
@@ -175,7 +175,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="me.laiyijie.server.data.domain.TbUserCriteria" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="me.laiyijie.server.data.generate.domain.TbUserCriteria" resultType="java.lang.Long">
     select count(*) from USER
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -231,7 +231,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="me.laiyijie.server.data.domain.TbUser">
+  <update id="updateByPrimaryKeySelective" parameterType="me.laiyijie.server.data.generate.domain.TbUser">
     update USER
     <set>
       <if test="NAME != null">
@@ -261,7 +261,7 @@
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="me.laiyijie.server.data.domain.TbUser">
+  <update id="updateByPrimaryKey" parameterType="me.laiyijie.server.data.generate.domain.TbUser">
     update USER
     set NAME = #{NAME,jdbcType=VARCHAR},
       PHONE_NUMBER = #{PHONE_NUMBER,jdbcType=VARCHAR},

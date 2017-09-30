@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="me.laiyijie.server.data.dao.TbProductionMapper">
-  <resultMap id="BaseResultMap" type="me.laiyijie.server.data.domain.TbProduction">
+<mapper namespace="me.laiyijie.server.data.generate.dao.TbProductionMapper">
+  <resultMap id="BaseResultMap" type="me.laiyijie.server.data.generate.domain.TbProduction">
     <id column="ID" jdbcType="INTEGER" property="ID" />
     <result column="AUTHOR_ID" jdbcType="INTEGER" property="AUTHOR_ID" />
     <result column="COVER_IMAGE_PATH" jdbcType="VARCHAR" property="COVER_IMAGE_PATH" />
@@ -75,7 +75,7 @@
     ID, AUTHOR_ID, COVER_IMAGE_PATH, TITLE, VIDEO_ID, VIDEO_DURATION, COMMENT_COUNT, 
     FAVORITE_COUNT, SHARE_COUNT, UPLOAD_TIME
   </sql>
-  <select id="selectByExample" parameterType="me.laiyijie.server.data.domain.TbProductionCriteria" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="me.laiyijie.server.data.generate.domain.TbProductionCriteria" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -99,13 +99,13 @@
     delete from PRODUCTION
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="me.laiyijie.server.data.domain.TbProductionCriteria">
+  <delete id="deleteByExample" parameterType="me.laiyijie.server.data.generate.domain.TbProductionCriteria">
     delete from PRODUCTION
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="me.laiyijie.server.data.domain.TbProduction">
+  <insert id="insert" parameterType="me.laiyijie.server.data.generate.domain.TbProduction">
     insert into PRODUCTION (ID, AUTHOR_ID, COVER_IMAGE_PATH, 
       TITLE, VIDEO_ID, VIDEO_DURATION, 
       COMMENT_COUNT, FAVORITE_COUNT, SHARE_COUNT, 
@@ -115,7 +115,7 @@
       #{COMMENT_COUNT,jdbcType=INTEGER}, #{FAVORITE_COUNT,jdbcType=INTEGER}, #{SHARE_COUNT,jdbcType=INTEGER}, 
       #{UPLOAD_TIME,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="me.laiyijie.server.data.domain.TbProduction">
+  <insert id="insertSelective" parameterType="me.laiyijie.server.data.generate.domain.TbProduction">
     insert into PRODUCTION
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ID != null">
@@ -182,7 +182,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="me.laiyijie.server.data.domain.TbProductionCriteria" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="me.laiyijie.server.data.generate.domain.TbProductionCriteria" resultType="java.lang.Long">
     select count(*) from PRODUCTION
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -242,7 +242,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="me.laiyijie.server.data.domain.TbProduction">
+  <update id="updateByPrimaryKeySelective" parameterType="me.laiyijie.server.data.generate.domain.TbProduction">
     update PRODUCTION
     <set>
       <if test="AUTHOR_ID != null">
@@ -275,7 +275,7 @@
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="me.laiyijie.server.data.domain.TbProduction">
+  <update id="updateByPrimaryKey" parameterType="me.laiyijie.server.data.generate.domain.TbProduction">
     update PRODUCTION
     set AUTHOR_ID = #{AUTHOR_ID,jdbcType=INTEGER},
       COVER_IMAGE_PATH = #{COVER_IMAGE_PATH,jdbcType=VARCHAR},
